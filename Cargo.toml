@@ -1,0 +1,11 @@
+[package]
+name = "dima-advent-of-code-2023"
+version = "1.0.0"
+authors = ["Dmitry Kochkin <cooch@mail.ru>"]
+edition = "2021"
+
+[dependencies]
+itertools = "0.12"
+
+[[bin]]
+name = "d01v1"
