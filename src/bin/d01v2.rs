@@ -42,7 +42,7 @@ fn main() {
         include_str!("day01.txt")
             .lines()
             .filter(|line| !line.is_empty())
-            .map(|line| calculate_line(line))
+            .map(calculate_line)
             .sum::<u32>()
     );
 }

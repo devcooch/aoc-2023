@@ -1,3 +1,6 @@
+use std::cmp::max;
+use std::collections::HashMap;
+
 fn main() {
     println!(
         "{}",
@@ -9,16 +12,19 @@ fn main() {
                 .nth(1)
                 .unwrap()
                 .split("; ")
-                .map(|set| set
+                .flat_map(|set| set
                     .split(", ")
                     .map(|cube| cube.split(' ').collect::<Vec<_>>())
                     .map(|v| (v[0].parse::<usize>().unwrap(), v[1].chars().next().unwrap()))
-                    .all(|cube| (cube.1 == 'r' && cube.0 <= 12)
-                        || (cube.1 == 'g' && cube.0 <= 13)
-                        || (cube.1 == 'b' && cube.0 <= 14)))
-                .all(|set| set))
-            .enumerate()
-            .map(|(no, possible)| if possible { no + 1 } else { 0 })
+                    .collect::<Vec<_>>())
+                .fold(HashMap::new(), |mut game, x| {
+                    let _ = *game
+                        .entry(x.1)
+                        .and_modify(|n| *n = max(*n, x.0))
+                        .or_insert(x.0);
+                    game
+                }))
+            .map(|hm| hm.get(&'r').unwrap() * hm.get(&'g').unwrap() * hm.get(&'b').unwrap())
             .sum::<usize>()
     );
 }
