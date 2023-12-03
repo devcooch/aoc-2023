@@ -3,7 +3,7 @@ name = "dima-advent-of-code-2023"
 version = "1.0.0"
 authors = ["Dmitry Kochkin <cooch@mail.ru>"]
 edition = "2021"
-default-run = "d01v2"
+default-run = "d02v1"
 
 [dependencies]
 itertools = "0.12"
@@ -15,3 +15,6 @@ name = "d01v1"
 
 [[bin]]
 name = "d01v2"
+
+[[bin]]
+name = "d02v1"
