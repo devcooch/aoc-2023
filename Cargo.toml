@@ -3,21 +3,9 @@ name = "dima-advent-of-code-2023"
 version = "1.0.0"
 authors = ["Dmitry Kochkin <cooch@mail.ru>"]
 edition = "2021"
-default-run = "d02v2"
+default-run = "d04v2"
 
 [dependencies]
 itertools = "0.12"
 once_cell = "1.18.0"
 regex = "1.10.2"
-
-[[bin]]
-name = "d01v1"
-
-[[bin]]
-name = "d01v2"
-
-[[bin]]
-name = "d02v1"
-
-[[bin]]
-name = "d02v2"
