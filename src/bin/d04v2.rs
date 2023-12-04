@@ -1,7 +1,8 @@
 use std::collections::{HashMap, HashSet};
 
 fn main() {
-    let input = include_str!("day04.txt")
+    let mut counts = HashMap::<usize, usize>::new();
+    include_str!("day04.txt")
         .lines()
         .filter(|l| !l.is_empty())
         .map(|l| {
@@ -14,10 +15,6 @@ fn main() {
         .map(|mut it| -> (Vec<usize>, HashSet<usize>) {
             ((it.next().unwrap()), HashSet::from_iter(it.next().unwrap()))
         })
-        .collect::<Vec<_>>();
-    let mut counts = HashMap::<usize, usize>::new();
-    input
-        .iter()
         .enumerate()
         .for_each(|(n, (winning_combination, card))| {
             let count = *counts.entry(n).and_modify(|e| *e += 1).or_insert(1);
