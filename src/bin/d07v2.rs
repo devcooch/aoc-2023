@@ -45,6 +45,7 @@ fn main() {
                             hand,
                             bid,
                             match (rating, jokers) {
+                                (10, 1) => 21,
                                 (21, 1 | 2 | 3) | (22, 1) => rating + jokers * 10 - 1,
                                 (_, _) => rating + jokers * 10,
                             },
